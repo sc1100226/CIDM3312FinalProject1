@@ -1,0 +1,46 @@
+@page
+@model CIDM3312FinalProject1.Pages.Games.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.GameName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game.GameName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.GameGenre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game.GameGenre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.GamePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game.GamePrice)
+        </dd>
+        @foreach(var r in Model.Game.Availabilities)
+        {
+            <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => r.Available)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => r.Available)
+        </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Game?.GameId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
